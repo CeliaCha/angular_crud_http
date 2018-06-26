@@ -9,10 +9,10 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
   getUsers(): Observable<Object> {
-    return this.http.get<Object>('https://jsonplaceholder.typicode.com/users')
+    return this.http.get<Object>('http://127.0.0.1:8000/api/users')
   }
-  getUser(userId) {
-    return this.http.get('https://jsonplaceholder.typicode.com/users/'+userId)
+  getUser(userId): Observable<Object> {
+    return this.http.get<Object>('http://127.0.0.1:8000/api/users/'+userId)
   }
   getPosts() {
     return this.http.get('https://jsonplaceholder.typicode.com/posts')
