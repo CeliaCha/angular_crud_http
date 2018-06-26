@@ -20,7 +20,7 @@ export class DetailsComponent implements OnInit {
     this.data.getUser(this.user$).subscribe(data => this.user$ = data)
   }
 
-  onClickMe(name, email) {
+  add(name, email) {
     console.log(name, email);
     let newUser = {
       "name" : name,
@@ -28,6 +28,18 @@ export class DetailsComponent implements OnInit {
       "password" : "fake1111"
     }
     this.data.addUser(newUser);
+  }
+  update(name, email) {
+    console.log(name, email);
+    let newUser = {
+      "name" : name,
+      "email" : email,
+      "password" : "fake1111"
+    }
+    this.data.updateUser(6, newUser);
+  }
+  delete() {
+    this.data.deleteUser(6);
   }
 
 }

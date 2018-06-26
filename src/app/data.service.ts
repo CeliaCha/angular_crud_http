@@ -20,12 +20,9 @@ export class DataService {
   }
   addUser(userData : Object): void {
     console.log('log dataservice')
-    // this.http.post(
-    //   'http://127.0.0.1:8000/api/users', userData
-    // )
-    const headers = new HttpHeaders();
-    headers.set('Content-Type', 'application/json; charset=utf-8');
-    const req = this.http.post('http://127.0.0.1:8000/api/users', userData, {headers: headers})
+    // const headers = new HttpHeaders();
+    // headers.set('Content-Type', 'application/json; charset=utf-8');
+    const req = this.http.post('http://127.0.0.1:8000/api/users', userData)
       .subscribe(
         res => {
           console.log(res);
@@ -34,6 +31,32 @@ export class DataService {
           console.log("Error occured");
         }
       );
+  }
+  updateUser(userId : Number, userData : Object):void {
+    let url = 'http://127.0.0.1:8000/api/users/'+userId;
+    this.http
+    .put(url, userData)
+    .subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log("Error occured");
+      }
+    );
+  }
+  deleteUser(userId : Number):void {
+    let url = 'http://127.0.0.1:8000/api/users/'+userId;
+    this.http
+    .delete(url)
+    .subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log("Error occured");
+      }
+    );
   }
   
 }

@@ -6,7 +6,7 @@
 </ul>
 
 <div>
-    <h2>Add user</h2>
+    <h2>CRUD CRUD CRUD</h2>
     <label>name:
       <input [(ngModel)]="user$.name" placeholder="name">
     </label>
@@ -14,4 +14,6 @@
         <input [(ngModel)]="user$.email" placeholder="email">
       </label>
 </div>
-<button (click)="onClickMe(user$.name, user$.email)">submit</button>
+<button (click)="add(user$.name, user$.email)">Add</button>
+<button (click)="update(user$.name, user$.email)">Update</button>
+<button (click)="delete()">Delete</button>
